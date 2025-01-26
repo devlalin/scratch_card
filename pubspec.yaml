@@ -1,6 +1,6 @@
 name: scratch_card
 description: "Scartch card for apps"
-version: 0.0.1
+version: 0.0.2
 repository: "https://github.com/devlalin/scratch_card"
 tagPattern: ^v{{version}}$
 

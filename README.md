@@ -39,5 +39,5 @@ Contributions are welcome! If you encounter bugs or have feature requests, feel 
 Ensure your `pubspec.yaml` includes the `tagPattern` field:
 
 ```yaml
-version: 1.0.0
+version: 0.0.2
 tagPattern: ^v{{version}}$
