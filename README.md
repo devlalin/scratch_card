@@ -31,13 +31,8 @@ to `/example` folder.
 const like = 'example';
 ```
 
-## Additional information
 
-Contributions are welcome! If you encounter bugs or have feature requests, feel free to open an issue or submit a pull request on GitHub.
 ## Tagging for Publishing
 
 Ensure your `pubspec.yaml` includes the `tagPattern` field:
 
-```yaml
-version: 0.0.2
-tagPattern: ^v{{version}}$
