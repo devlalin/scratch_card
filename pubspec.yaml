@@ -10,7 +10,7 @@ tagPattern: ^v{{version}}$
 environment:
   sdk: ^3.6.0
   flutter: ">=1.17.0"
-publish_to: "https://pub.dev"
+
 
 dependencies:
   flutter:
