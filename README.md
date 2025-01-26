@@ -1,6 +1,10 @@
 
+
+
 -->
 A highly customizable scratch card widget for Flutter applications. This package allows you to create scratch cards with ease, using solid colors, images, or custom widgets for the scratchable surface. Perfect for creating interactive promotions, games, or hidden reveal features.
+
+
 
 ## Features
 
@@ -30,3 +34,10 @@ const like = 'example';
 ## Additional information
 
 Contributions are welcome! If you encounter bugs or have feature requests, feel free to open an issue or submit a pull request on GitHub.
+## Tagging for Publishing
+
+Ensure your `pubspec.yaml` includes the `tagPattern` field:
+
+```yaml
+version: 1.0.0
+tagPattern: ^v{{version}}$

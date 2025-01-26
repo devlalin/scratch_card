@@ -2,6 +2,7 @@ name: scratch_card
 description: "Scartch card for apps"
 version: 0.0.1
 repository: "https://github.com/devlalin/scratch_card"
+tagPattern: ^v{{version}}$
 
 environment:
   sdk: ^3.6.0
