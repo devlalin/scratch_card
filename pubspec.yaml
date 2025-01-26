@@ -1,8 +1,11 @@
 name: scratch_card
-description: "Scartch card for apps"
-version: 0.0.2
+description: >-
+  A customizable scratch card widget for Flutter. Perfect for interactive promotions, games, or hidden reveals.
+
+version: 0.0.3
 repository: "https://github.com/devlalin/scratch_card"
 tagPattern: ^v{{version}}$
+publish_to: "https://pub.dev"
 
 environment:
   sdk: ^3.6.0
