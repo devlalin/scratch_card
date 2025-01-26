@@ -5,11 +5,12 @@ description: >-
 version: 0.0.3
 repository: "https://github.com/devlalin/scratch_card"
 tagPattern: ^v{{version}}$
-publish_to: "https://pub.dev"
+
 
 environment:
   sdk: ^3.6.0
   flutter: ">=1.17.0"
+publish_to: "https://pub.dev"
 
 dependencies:
   flutter:
