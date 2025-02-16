@@ -30,9 +30,14 @@ class MyApp extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50),
                     child: ScratchCard(
                       stockSize: 50,
-                      imageType: ImageType.network,
                       scratchColor: Colors.pink,
-                      child: Center(child: Text('Hi lalin success')),
+                      child: Center(
+                          child: ElevatedButton(
+                        child: Text('Hi  success'),
+                        onPressed: () {
+                          print('can click');
+                        },
+                      )),
                     ),
                   ),
                 ),

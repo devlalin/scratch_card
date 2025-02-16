@@ -6,6 +6,7 @@ class ScratchCard extends StatelessWidget {
   final String? scratchImage;
   final ImageType imageType;
   final double stockSize;
+ 
 
   const ScratchCard({
     super.key,
@@ -13,12 +14,13 @@ class ScratchCard extends StatelessWidget {
     this.scratchColor = Colors.grey,
     this.scratchImage,
     required this.child,
-    this.stockSize = 20,
+    this.stockSize = 20, 
   });
 
   @override
   Widget build(BuildContext context) {
     return ScratchCardSrc(
+  
       imageType: imageType,
       scratchColor: scratchColor,
       scratchImage: scratchImage,

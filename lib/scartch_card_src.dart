@@ -1,7 +1,4 @@
-
-
-
-
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -10,21 +7,21 @@ import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
 import 'package:scratch_card/enum.dart';
 
-
-
 class ScratchCardSrc extends StatefulWidget {
   final Widget child;
   final Color scratchColor;
   final String? scratchImage;
   final ImageType imageType;
   final double stockSize;
+
   const ScratchCardSrc(
       {super.key,
-        this.imageType = ImageType.asset,
-        this.scratchColor = Colors.grey,
-        this.scratchImage,
-        this.stockSize = 20,
-        required this.child});
+      this.imageType = ImageType.asset,
+      this.scratchColor = Colors.grey,
+      this.scratchImage,
+      this.stockSize = 20,
+      required this.child,
+      });
 
   @override
   State<ScratchCardSrc> createState() => _ScratchCardScreenState();
@@ -33,11 +30,14 @@ class ScratchCardSrc extends StatefulWidget {
 class _ScratchCardScreenState extends State<ScratchCardSrc> {
   final List<Offset> _points = [];
 
+
   @override
   void initState() {
     super.initState();
     initialFunction();
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -49,18 +49,21 @@ class _ScratchCardScreenState extends State<ScratchCardSrc> {
 
     return Stack(
       children: [
-
         widget.child,
-
         GestureDetector(
+           behavior: HitTestBehavior.translucent, 
           onPanUpdate: onScratch,
-          child: CustomPaint(
-            size: Size.infinite,
-            painter: ScratchCardPainter(
-                points: _points,
-                scratchCardColor: widget.scratchColor,
-                scratchImage: _scratchImage,
-                stockSize: widget.stockSize),
+          child: IgnorePointer(
+            ignoring: true,
+            child: CustomPaint(
+              size: Size.infinite,
+              painter: ScratchCardPainter(
+        
+                  points: _points,
+                  scratchCardColor: widget.scratchColor,
+                  scratchImage: _scratchImage,
+                  stockSize: widget.stockSize),
+            ),
           ),
         ),
       ],
@@ -111,7 +114,7 @@ class _ScratchCardScreenState extends State<ScratchCardSrc> {
   ///loads asset image to ui image for scratching
   Future<ui.Image> _loadAssetImage() async {
     final data =
-    await DefaultAssetBundle.of(context).load(widget.scratchImage!);
+        await DefaultAssetBundle.of(context).load(widget.scratchImage!);
     final codec = await ui.instantiateImageCodec(data.buffer.asUint8List());
     final frame = await codec.getNextFrame();
     return frame.image;
@@ -124,7 +127,7 @@ class _ScratchCardScreenState extends State<ScratchCardSrc> {
 
     final ByteData imageData = await NetworkAssetBundle(uri).load("");
     final codec =
-    await ui.instantiateImageCodec(imageData.buffer.asUint8List());
+        await ui.instantiateImageCodec(imageData.buffer.asUint8List());
     final frame = await codec.getNextFrame();
     return frame.image;
   }
@@ -146,11 +149,13 @@ class ScratchCardPainter extends CustomPainter {
   final Color scratchCardColor;
   final double stockSize;
 
+
   ScratchCardPainter(
-      {required this.points,
-        this.scratchImage,
-        this.scratchCardColor = Colors.grey,
-        this.stockSize = 20.00});
+      {
+      required this.points,
+      this.scratchImage,
+      this.scratchCardColor = Colors.grey,
+      this.stockSize = 20.00});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -158,7 +163,6 @@ class ScratchCardPainter extends CustomPainter {
 
     // Draw a background layer with transparency
     canvas.saveLayer(Rect.fromLTWH(0, 0, size.width, size.height), Paint());
-
     if (scratchImage != null) {
       Paint imagePaint = Paint();
       canvas.drawImageRect(
@@ -170,7 +174,6 @@ class ScratchCardPainter extends CustomPainter {
       );
     } else {
       Paint imagePaint = Paint()..color = scratchCardColor;
-
       canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), imagePaint);
     }
 
@@ -194,5 +197,3 @@ class ScratchCardPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
 }
-
-
